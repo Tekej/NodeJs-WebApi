@@ -1,0 +1,37 @@
+<%- include('../../fragments/header.ejs')%>
+<main>
+    <h2>Lista Zatrudnień</h2>
+    <table class="table-list">
+        <thead>
+        <th id="imieLek">Imie lekarza</th>
+        <th id="nazwLek">Nazwisko lekarza</th>
+        <th>Nazwa kliniki</th>
+        <th>Salary</th>
+        <th class="zatColumns">Data od</th>
+        <th class="zatColumns">Data do</th>
+        <th class="akcjeColumn">Akcje</th>
+        </thead>
+        <tbody>
+        <%for (let zat of zatrudnienie) { %>
+            <tr>
+                <td><%= zat.lekarze.firstName %></td>
+                <td><%= zat.lekarze.lastName %></td>
+                <td><%= zat.klinika.nazwa %></td>
+                <td><%= zat.salary %></td>
+                <td><%= zat.dateFrom %></td>
+                <td><%= zat.dateTo %></td>
+                <td>
+                    <ul class="list-actions">
+                        <li><a href="/zatrudnienie/details/<%=zat._id%>" class="list-actions-button-details">Szczegóły</a></li>
+                        <li><a href="/zatrudnienie/edit/<%=zat._id%>" class="list-actions-button-edit">Edytuj</a></li>
+                        <li><a href="/zatrudnienie/delete/<%=zat._id%>" class="list-actions-button-delete">Usuń</a></li>
+                    </ul>
+                </td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+    <p><a href="zatrudnienie/add/" class="button-add">Dodaj nowe zatrudnienie</a> </p>
+
+</main>
+<%- include('../../fragments/footer.ejs')%>

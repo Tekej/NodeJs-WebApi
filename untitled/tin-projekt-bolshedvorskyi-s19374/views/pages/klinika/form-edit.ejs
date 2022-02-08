@@ -1,0 +1,31 @@
+<%- include('../../fragments/header.ejs')%>
+<main>
+    <h2>Edycja Kliniki</h2>
+    <form class="form">
+        <label for="klinika">Lekarze</label>
+        <select name="klinika" id="klinika">
+            <option>-- Wybierz kliniku --</option>
+            <option value="1">Sant Jan</option>
+            <option value="2">Sant Olek</option>
+            <option value="3">Sant Alex</option>
+            <option value="4">Sant Ivan</option>
+        </select>
+        <span></span>
+        <label for="nazwa">Nazwa:</label>
+        <input type="text" name="nazwa" id="nazwa">
+        <span></span>
+        <label for="adress">Adress:</label>
+        <input type="text" name="adress" id="adress">
+        <span></span>
+        <label for="specjalizacja">Specjalizcja:</label>
+        <input type="text" name="specjalizacja" id="specjalizacja">
+        <span></span>
+        <div class="form-buttons">
+            <input type="submit" class="form-button-submit" value="Dodaj" />
+            <a href="klinika-list.ejs" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+
+
+</main>
+<%- include('../../fragments/footer.ejs')%>

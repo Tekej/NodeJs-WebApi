@@ -1,0 +1,22 @@
+<%- include('../../fragments/header.ejs')%>
+<main>
+    <h2>Nowa klinika</h2>
+    <form class="form">
+        <label for="nazwa">Nazwa: <span class="symbol-required">*</span></label>
+        <input type="text" name="nazwa" id="nazwa" class="error-input">
+        <span id="errorNazwa" class="errors-text">Pole jest wymagane</span>
+        <label for="adress">Adress: <span class="symbol-required">*</span></label>
+        <input type="text" name="adress" id="adress" class="error-input">
+        <span id="errorAdress" class="errors-text">Pole jest wymagane</span>
+        <label for="specjalizacja">Specjalizacja: <span class="symbol-required">*</span></label>
+        <input type="text" name="specjalizacja" id="specjalizacja" class="error-input">
+        <span id="errorSpecjalizacja" class="errors-text">Pole jest wymagane</span>
+        <div class="form-buttons">
+            <span class="errors-text">Formularz zawiera blędy</span>
+            <input type="submit" value="Dodaj" class="form-button-submit"/>
+            <a href="" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+
+</main>
+<%- include('../../fragments/footer.ejs')%>

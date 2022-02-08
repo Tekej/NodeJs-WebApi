@@ -1,0 +1,56 @@
+<%- include('../../fragments/header.ejs')%>
+<main>
+    <h2>Informacja o zatrudnienie</h2>
+    <form class="form">
+        <label for="salary">Salary:</label>
+        <input type="text" name="salary" id="salary" value="3500" disabled>
+        <span></span>
+        <label for="dateFrom">Date from</label>
+        <input type="text" name="dateFrom" id="dateFrom" value="2000/12/02" disabled>
+        <span></span>
+        <label for="dateTo">Date to</label>
+        <input type="text" name="dateTo" id="dateTo" value="Null" disabled>
+        <span></span>
+    </form>
+    <div class="form-buttons">
+        <a href="form-edit.ejs" class="list-actions-button-edit">Edytuj</a>
+    </div>
+    <h2>Szególy o lekarze</h2>
+    <table class="table-list">
+        <thead>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>E-mail</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Jan</td>
+            <td>Kowalski</td>
+            <td>2000/12/02</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="form-buttons">
+        <a href="form-edit.ejs" class="list-actions-button-edit">Edytuj</a>
+    </div>
+    <h2>Szególy o klinikie</h2>
+    <table class="table-list">
+        <thead>
+        <th>Nazwa</th>
+        <th>Adress</th>
+        <th>Specjalizacja</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Sant Jan</td>
+            <td>Kowalski street</td>
+            <td>Rentgenologia</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="form-buttons">
+        <a href="zatrudnienie-list.ejs" class="list-actions-button-back">Powrót</a>
+    </div>
+
+</main>
+<%- include('../../fragments/footer.ejs')%>

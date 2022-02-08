@@ -1,0 +1,33 @@
+<%- include('../../fragments/header.ejs')%>
+<main>
+    <h2>Nowa informacja zatrudnienia</h2>
+    <form class="form">
+        <label for="lekarz">Lekarze: <span class="symbol-required">*</span></label>
+        <select name="lekarz" id="lekarz" class="error-input">
+            <option>-- Wybierz lekarza --</option>
+            <option value="1">Jan Kowalski</option>
+            <option value="2">Olek Jegorow</option>
+            <option value="3">Alex Stepanenko</option>
+            <option value="4">Ivan Petrenko</option>
+        </select>
+        <span id="errorLekarzSelect" class="errors-text">Pole jest wymagane</span>
+        <label for="salary">Salary: <span class="symbol-required">*</span></label>
+        <input type="text" name="salary" id="salary" class="error-input">
+        <span id="errorSalary" class="errors-text">Pole jest wymagane</span>
+        <label for="dateFrom">Date from: <span class="symbol-required">*</span></label>
+        <input type="text" name="dateFrom" id="dateFrom" class="error-input">
+        <span id="errorDateFrom" class="errors-text">Pole jest wymagane</span>
+        <label for="dateTo">Date to: <span class="symbol-required">*</span></label>
+        <input type="text" name="dateTo" id="dateTo" class="error-input">
+        <span id="errorDateTo" class="errors-text">Pole jest wymagane</span>
+
+
+        <div class="form-buttons">
+            <span class="errors-text" id="errorsSummaryZatrudnienie">Formularz zawiera blędy</span>
+            <input type="submit" value="Dodaj" class="form-button-submit"/>
+            <a href="" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+
+</main>
+<%- include('../../fragments/footer.ejs')%>

@@ -1,0 +1,31 @@
+<%- include('../../fragments/header.ejs')%>
+
+<main>
+    <h2>Edycja lekarza</h2>
+    <form class="form">
+        <label for="lekarz">Lekarze</label>
+        <select name="lekarz" id="lekarz">
+            <option>-- Wybierz lekarza --</option>
+            <option value="1">Jan Kowalski</option>
+            <option value="2">Olek Jegorow</option>
+            <option value="3">Alex Stepanenko</option>
+            <option value="4">Ivan Petrenko</option>
+        </select>
+        <span></span>
+        <label for="firstname">Imie:</label>
+        <input type="text" name="firstname" id="firstname">
+        <span></span>
+        <label for="lastname">Nazwisko:</label>
+        <input type="text" name="lastname" id="lastname">
+        <span></span>
+        <label for="email">E-mail:</label>
+        <input type="text" name="email" id="email">
+        <span></span>
+        <div class="form-buttons">
+            <input type="submit" class="form-button-submit" value="Dodaj" />
+            <a href="lekarz-list.ejs" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+
+</main>
+<%- include('../../fragments/footer.ejs')%>

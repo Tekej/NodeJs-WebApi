@@ -1,0 +1,72 @@
+<%- include('../../fragments/header.ejs')%>
+<main>
+<!--    <script type="application/javascript" src="/js/validationLekarzForm"></script>-->
+    <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%= formAction %>" novalidate>
+        <input type="hidden" name="_id" value="<%= lekarz._id %>">
+        <label for="firstName">Imie: <span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>" name="firstName" id="firstName" placeholder="2-60 znaków" value="<%= lekarz.firstName %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorFirstName" class="errors-text">
+            <% if(validationErrors.find(e => e.path.includes('firstName'))) { %>
+                <%= validationErrors.find(e => e.path.includes('firstName')).message %>
+            <% } %>
+        </span>
+        <label for="lastName">Nazwisko: <span class="symbol-required">*</span></label>
+        <input type="text"  class="<%= validationErrors.find(e => e.path.includes('lastName')) ? 'error-input' : '' %>" name="lastName" id="lastName" placeholder="2-60 znaków" value="<%= lekarz.lastName %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorLastName" class="errors-text">
+            <% if(validationErrors.find(e => e.path.includes('lastName'))) { %>
+            <%= validationErrors.find(e => e.path.includes('lastName')).message %>
+            <% } %>
+        </span>
+        <label for="email">E-mail: <span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('email')) ? 'error-input' : '' %>" name="email" id="email"  value="<%= lekarz.email %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorEmail" class="errors-text">
+            <% if(validationErrors.find(e => e.path.includes('email'))) { %>
+            <%= validationErrors.find(e => e.path.includes('email')).message %>
+            <% } %>
+        </span>
+        <% if (formMode == 'showDetails') { %>
+            <div class="section-buttons">
+                <a href="/lekarz/edit/<%= lekarz._id %>" class="list-actions-button-edit">Edytuj</a>
+            </div>
+        <% } %>
+
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+
+            <h2>
+                Szczegóły zatrudnienia
+            </h2>
+            <table class="table-list">
+                <thead>
+                <tr>
+                    <th>Klinika</th>
+                    <th>Salary</th>
+                    <th>Data od</th>
+                    <th>Data do</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (let e of lekarz.zatrudnienie) { %>
+                    <tr>
+                        <td><a href="/klinika/details/<%= e.klinika._id %>"><%= e.klinika.nazwa %></a></td>
+                        <td><%= e.salary %></td>
+                        <td><%= e.dateFrom.toISOString().split('T') [0] %></td>
+                        <td><%= e.dateTo ? e.dateTo.toISOString().split('T') [0] : '' %></td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        <% } %>
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') {%>
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <a class="form-button-cancel" href="/lekarz">Anuluj</a>
+            <% } else { %>
+
+                <a class="form-button-cancel" href="/lekarz">Powrót</a>
+            <% } %>
+        </div>
+    </form>
+</main>
+<%- include('../../fragments/footer.ejs')%>

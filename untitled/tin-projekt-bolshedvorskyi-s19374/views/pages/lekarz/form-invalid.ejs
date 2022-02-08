@@ -1,0 +1,22 @@
+<%- include('../../fragments/header.ejs')%>
+
+    <h2>Nowy lekarz</h2>
+    <form class="form">
+        <label for="firstname">Imię: <span class="symbol-required">*</span></label>
+        <input type="text" name="firstname" id="firstname" class="error-input">
+        <span id="errorFirstName" class="errors-text">Pole jest wymagane</span>
+        <label for="lastname">Nazwisko: <span class="symbol-required">*</span></label>
+        <input type="text" name="lastname" id="lastname" class="error-input">
+        <span id="errorLastName" class="errors-text">Pole jest wymagane</span>
+        <label for="email">E-mail: <span class="symbol-required">*</span></label>
+        <input type="text" name="email" id="email" class="error-input">
+        <span id="errorEmail" class="errors-text">Pole jest wymagane</span>
+        <div class="form-buttons">
+            <p class="errors-text" id="errorsSummaryLekarz">Formularz zawiera blędy</p>
+            <input type="submit" value="Dodaj" class="form-button-submit"/>
+            <a href="lekarz-list.ejs" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+
+</main>
+<%- include('../../fragments/footer.ejs')%>

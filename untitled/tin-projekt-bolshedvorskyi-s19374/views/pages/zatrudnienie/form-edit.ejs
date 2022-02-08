@@ -1,0 +1,30 @@
+<%- include('../../fragments/header.ejs')%>
+<main>
+    <h2>Edycja zatrudnienia</h2>
+    <form class="form">
+        <label for="lekarz">Lekarze</label>
+        <select name="lekarz" id="lekarz">
+            <option>-- Wybierz lekarza --</option>
+            <option value="1">Jan Kowalski</option>
+            <option value="2">Olek Jegorow</option>
+            <option value="3">Alex Stepanenko</option>
+            <option value="4">Ivan Petrenko</option>
+        </select>
+        <span></span>
+        <label for="salary">Salary:</label>
+        <input type="text" name="salary" id="salary">
+        <span></span>
+        <label for="dateFrom">Date from:</label>
+        <input type="text" name="dateFrom" id="dateFrom">
+        <span></span>
+        <label for="dateTo">Date to:</label>
+        <input type="text" name="dateTo" id="dateTo">
+        <span></span>
+        <div class="form-buttons">
+            <input type="submit" class="form-button-submit" value="Dodaj" />
+            <a href="zatrudnienie-list.ejs" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+
+</main>
+<%- include('../../fragments/footer.ejs')%>

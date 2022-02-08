@@ -1,0 +1,31 @@
+<%- include('../../fragments/header.ejs')%>
+<main>
+  <h2>Lista Kliniki</h2>
+  <table class="table-list">
+    <thead>
+    <th>Nazwa</th>
+    <th>Adres</th>
+    <th>Speacjalizacja</th>
+    <th class="akcjeColumn">Akcje</th>
+    </thead>
+    <tbody>
+    <%for (let kliniki of klinika) { %>
+      <tr>
+        <td><%= kliniki.nazwa %></td>
+        <td><%= kliniki.adres %></td>
+        <td><%= kliniki.specjalizacja %></td>
+        <td>
+          <ul class="list-actions">
+            <li><a href="/klinika/details/<%=kliniki._id%>" class="list-actions-button-details">Szczegóły</a></li>
+            <li><a href="/klinika/edit/<%=kliniki._id%>" class="list-actions-button-edit">Edytuj</a></li>
+            <li><a href="/klinika/delete/<%=kliniki._id%>" class="list-actions-button-delete">Usuń</a></li>
+          </ul>
+        </td>
+      </tr>
+    <% } %>
+    </tbody>
+  </table>
+  <p><a href="klinika/add/" class="button-add">Dodaj nowu kliniku</a> </p>
+
+</main>
+<%- include('../../fragments/footer.ejs')%>

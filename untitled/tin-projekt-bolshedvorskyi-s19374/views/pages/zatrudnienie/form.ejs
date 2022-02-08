@@ -1,0 +1,103 @@
+<%- include('../../fragments/header.ejs')%>
+<main>
+<!--    <script type="application/javascript" src="public/js/validationZatrudnienieForm.js"></script>-->
+    <h2><%= pageTitle %></h2>
+
+    <form class="form" method="post" action="<%= formAction %>" novalidate>
+        <input type="hidden" name="_id" value="<%= zatrudnienie._id %>">
+
+        <label for="lekarzId">Lekarz: <span class="symbol-required">*</span></label>
+        <select id="lekarzId" name="lekarzId" required class="<%= validationErrors.find(e=>e.path.includes('lekarzId')) ? 'error-input' : '' %>" <%=(formMode=='showDetails' ) ? 'disabled' : ''%> >
+            <% if (formMode !='edit' ){ %>
+                <option value ="" selected="selected">--- Wybierz lekarza ---</option>
+            <% } %>
+                <% for (let i=0; i<allLekarze.length; i++) {let lek=allLekarze[i]; %>
+                <option value="<%= lek._id %>" label="<%= lek.firstName+' '+ lek.lastName %>"
+                        <%=(zatrudnienie._id && lek._id.toString() == zatrudnienie.lekarze._id.toString()) ? 'selected' : ''%>>
+                </option>
+                <% } %>
+        </select>
+        <span id="errorLekId" class="errors-text">
+            <% if(validationErrors.find(e => e.path.includes('lekarzId'))) { %>
+                <%= validationErrors.find(e => e.path.includes('lekarzId')).message %>
+            <% } %>
+        </span>
+        <label for="klinikaId">Id Kliniki: <span class="symbol-required">*</span></label>
+        <select id="klinikaId" name="klinikaId" required class="<%= validationErrors.find(e=>e.path.includes('klinikaId')) ? 'error-input' : '' %>" <%=(formMode=='showDetails' ) ? 'disabled' : ''%> >
+        <option value ="" selected=" selected">--- Wybierz kliniku ---</option>
+            <% for (let i=0; i<allKlinika.length; i++) { let kli = allKlinika[i]; %>
+            <option value="<%= kli._id%>" label="<%= kli.nazwa %>"
+                    <%= (zatrudnienie._id && kli._id.toString() == zatrudnienie.klinika._id.toString()) ? 'selected' : ''%>></option>
+            <%}%>
+        </select>
+        <span id="errorKliId" class="errors-text">
+            <% if(validationErrors.find(e => e.path.includes('klinikaId'))) { %>
+                <%= validationErrors.find(e => e.path.includes('klinikaId')).message %>
+            <% } %>
+        </span>
+
+        <label for="salary">Salary: <span class="symbol-required">*</span></label>
+        <input type="text" class="<%= validationErrors.find(e => e.path.includes('salary')) ? 'error-input' : '' %>" name="salary" id="salary" value="<%= zatrudnienie.salary %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorSalary" class="errors-text">
+            <% if(validationErrors.find(e => e.path.includes('salary'))) { %>
+                <%= validationErrors.find(e => e.path.includes('salary')).message %>
+            <% } %>
+        </span>
+
+        <label for="dateFrom">Data Od: <span class="symbol-required">*</span></label>
+        <input type="text" name="dateFrom" id="dateFrom" value="<%= (formMode=='createNew') ? '': zatrudnienie.dateFrom %>" class="<%= validationErrors.find(e=>e.path.includes('dateFrom')) ? 'error-input' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorDateFrom" class="errors-text">
+            <% if(validationErrors.find(e => e.path.includes('dateFrom'))) { %>
+                <%= validationErrors.find(e => e.path.includes('dateFrom')).message %>
+            <% } %>
+        </span>
+        <label for="dateTo">Data Do: *</label>
+        <input type="text" name="dateTo" id="dateTo" value="<%= (formMode=='createNew') ? '': zatrudnienie.dateTo %>" class="<%= validationErrors.find(e=>e.path.includes('dateTo')) ? 'error-input' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorDateTo" >
+        </span>
+        <% if (formMode == 'showDetails') { %>
+            <div class="section-buttons">
+                <a href="/zatrudnienie/edit/<%= zatrudnienie._id %>" class="list-actions-button-edit">Edytuj</a>
+            </div>
+        <% } %>
+
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+
+            <h2>
+                Szczegóły zatrudnienia
+            </h2>
+            <table class="table-list">
+                <thead>
+                <tr>
+                    <th>Klinika</th>
+                    <th>Imie</th>
+                    <th>Nazwisko</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%  %>
+                    <tr>
+                        <td><a href="/klinika/details/<%= zatrudnienie.klinika._id %>"><%= zatrudnienie.klinika.nazwa %></a></td>
+                        <td><a href="/lekarz/details/<%= zatrudnienie.lekarze._id %>"><%= zatrudnienie.lekarze.firstName %></a></td>
+                        <td><a href="/lekarz/details/<%= zatrudnienie.lekarze._id %>"><%= zatrudnienie.lekarze.lastName %></a></td>
+                    </tr>
+                <% %>
+                </tbody>
+            </table>
+        <% } %>
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') {%>
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <a class="form-button-cancel" href="/zatrudnienie">Anuluj</a>
+            <% } else { %>
+
+                <a class="form-button-cancel" href="/zatrudnienie">Powrót</a>
+            <% } %>
+        </div>
+    </form>
+
+
+
+</main>
+<%- include('../../fragments/footer.ejs')%>

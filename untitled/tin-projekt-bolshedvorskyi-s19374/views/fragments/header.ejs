@@ -1,0 +1,22 @@
+<!Doctype html>
+<html lang="pl-PL">
+
+<head>
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta name="viewport" content="width = device, initial-scale = 1">
+    <meta charset="UTF-8">
+    <title>Klinika HR Demo</title>
+</head>
+<body>
+<header>
+    <h1>Klinika HR Department</h1>
+    <img href ="index.html" src="/images/logo.jpeg" alt="ACME HR Department logo" class="main-logo">
+</header>
+<nav>
+    <ul>
+        <li><a href ="/" class="<%= navLocation == 'main' ? 'active' : '' %>">Strona główna</a></li>
+        <li><a href="/lekarz" class="<%= navLocation == 'lekarz' ? 'active' : '' %>">Lekarz</a></li>
+        <li><a href="/klinika" class="<%= navLocation == 'klinika' ? 'active' : '' %>">Klinika</a></li>
+        <li><a href="/zatrudnienie" class="<%= navLocation == 'zatrudnienie' ? 'active' : '' %>">Zatrudnienie</a></li>
+    </ul>
+</nav>

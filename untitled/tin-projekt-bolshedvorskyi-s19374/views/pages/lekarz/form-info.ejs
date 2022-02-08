@@ -1,0 +1,38 @@
+<%- include('../../fragments/header.ejs')%>
+
+<main>
+    <h2>Szególy o lekarze</h2>
+    <form class="form">
+        <label for="firstname">Imię:</label>
+        <input type="text" name="firstname" id="firstname" value="Jan" disabled>
+        <span></span>
+        <label for="lastname">Nazwisko:</label>
+        <input type="text" name="lastname" id="lastname" value="Kowalski" disabled>
+        <span></span>
+        <label for="email">E-mail:</label>
+        <input type="text" name="email" id="email" value="jan.kowalski@acme.com" disabled>
+        <span></span>
+    </form>
+    <div class="form-buttons">
+        <a href="form-edit.ejs" class="list-actions-button-edit">Edytuj</a>
+    </div>
+    <h2>Szególy o klinkikie</h2>
+    <table class="table-list">
+        <thead>
+        <th>Nazwa</th>
+        <th>Adress</th>
+        <th>Specjalizacja</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Sant Jan</td>
+            <td>Kowalski street</td>
+            <td>Rentgenologia</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="form-buttons">
+        <a href="lekarz-list.ejs" class="list-actions-button-back">Powrót</a>
+    </div>
+</main>
+<%- include('../../fragments/footer.ejs')%>

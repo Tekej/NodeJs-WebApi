@@ -1,0 +1,38 @@
+<%- include('../../fragments/header.ejs')%>
+<main>
+    <h2>Szególy Kliniki</h2>
+    <form class="form">
+        <label for="nazwa">Nazwa:</label>
+        <input type="text" name="nazwa" id="nazwa" value="sant Jan">
+        <span></span>
+        <label for="adress">Adress:</label>
+        <input type="text" name="adress" id="adress", value="Kowalski street">
+        <span></span>
+        <label for="specjalizacja">Specjalizcja:</label>
+        <input type="text" name="specjalizacja" id="specjalizacja" value="Rentgenologia">
+        <span></span>
+    </form>
+    <div class="form-buttons">
+        <a href="form-edit.ejs" class="list-actions-button-edit">Edytuj</a>
+    </div>
+    <h2>Szególy zatrudnienia</h2>
+    <table class="table-list">
+        <thead>
+        <th>Salary</th>
+        <th>Date From</th>
+        <th>Date To</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>3500</td>
+            <td>2000/12/02</td>
+            <td>Null</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="form-buttons">
+        <a href="klinika-list.ejs" class="list-actions-button-back">Powrót</a>
+    </div>
+
+</main>
+<%- include('../../fragments/footer.ejs')%>
